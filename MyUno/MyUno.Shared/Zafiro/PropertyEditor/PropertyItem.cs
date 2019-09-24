@@ -10,7 +10,7 @@ using Microsoft.Toolkit.Uwp.UI.Extensions;
 
 namespace MyUno.Zafiro.PropertyEditor
 {
-    public class PropertyItem : Control, INotifyPropertyChanged, IDisposable
+    public partial class PropertyItem : Control, INotifyPropertyChanged, IDisposable
     {
         private readonly IList<object> targets;
         private readonly IList<INotifyPropertyChanged> observables;
@@ -84,17 +84,25 @@ namespace MyUno.Zafiro.PropertyEditor
 
         private FrameworkElement CreateEditor(PropertyItem propertyItem)
         {
-            if (IsExpandable)
+            try
             {
-                return CreateExpandableEditor();
+                if (IsExpandable)
+                {
+                    return CreateExpandableEditor();
+                }
+
+                var objectEditor = propertyItem.FindAscendant<ObjectEditor>();
+                var editorTemplates = objectEditor.Editors;
+                var template = editorTemplates
+                                   .FirstOrDefault(e => IsMatch(propertyItem, e))?.Template ?? objectEditor.DefaultEditorTemplate;
+
+                return (FrameworkElement)template.LoadContent();
             }
-
-            var objectEditor = propertyItem.FindAscendant<ObjectEditor>();
-            var editorTemplates = objectEditor.Editors;
-            var template = editorTemplates
-                               .FirstOrDefault(e => IsMatch(propertyItem, e))?.Template ?? objectEditor.DefaultEditorTemplate;
-
-            return (FrameworkElement)template.LoadContent();
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return null;
+            }
         }
 
         private static bool IsMatch(PropertyItem propertyItem, Editor e)

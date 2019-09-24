@@ -8,7 +8,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace MyUno.Zafiro.PropertyEditor
 {
-    public class ObjectEditor : Control
+    public partial class ObjectEditor : Control
     {
         public ObjectEditor()
         {

@@ -5,4 +5,8 @@
     xmlns:local="using:MyUno"
     RequestedTheme="Light">
 
+    <Application.Resources>
+        <ResourceDictionary Source="Zafiro/Generic.xaml"></ResourceDictionary>
+    </Application.Resources>
+
 </Application>
