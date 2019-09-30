@@ -2,12 +2,36 @@
     x:Class="MyUno.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:MyUno"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:system="using:System"
     xmlns:propertyEditor="using:MyUno.Zafiro.PropertyEditor"
     mc:Ignorable="d">
+
+    <Page.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary  Source="AppResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <!--<Grid x:Name="TextBox" Background="Transparent">
+        --><!--<TextBox VerticalAlignment="Top" HorizontalAlignment="Center">
+            <interactivity:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="KeyUp">
+                    <core:ChangePropertyAction TargetObject="{Binding ElementName=TextBox}" PropertyName="Background"
+                                               Value="{StaticResource PaleYellowBrush}" />
+                </core:EventTriggerBehavior>
+            </interactivity:Interaction.Behaviors>
+        </TextBox>--><!--
+        <interactivity:Interaction.Behaviors>
+            <propertyEditor:RubberBandBehavior></propertyEditor:RubberBandBehavior>
+        </interactivity:Interaction.Behaviors>
+    </Grid>-->
 
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock Text="Hola" x:Name="TextBlock"></TextBlock>

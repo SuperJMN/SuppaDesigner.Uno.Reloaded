@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:propertyEditor="using:MyUno.Zafiro.PropertyEditor">
+    xmlns:propertyEditor="using:MyUno.Zafiro.PropertyEditor"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <Style TargetType="propertyEditor:ObjectEditor">
         <Setter Property="Background" Value="#CFCFCF" />
@@ -42,9 +43,26 @@
                                 <ColumnDefinition Width="2*" />
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="{Binding PropName}" VerticalAlignment="Center" />
-                            <ContentControl HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Content="{Binding Editor}" />
+                            <ContentControl Background="Red" Content="{Binding Editor}" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1">
+                                <ContentControl.Template>
+                                    <ControlTemplate TargetType="ContentControl">
+                                        <ContentPresenter Content="{TemplateBinding Content}" />
+                                    </ControlTemplate>
+                                </ContentControl.Template>
+                            </ContentControl>
                         </Grid>
                     </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style TargetType="ContentControl" x:Key="ContentControlStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <ContentPresenter Content="{TemplateBinding Content}" Background="{TemplateBinding Background}" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

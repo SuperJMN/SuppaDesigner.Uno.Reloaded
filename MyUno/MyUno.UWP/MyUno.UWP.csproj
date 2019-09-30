@@ -15,9 +15,15 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.2</Version>
     </PackageReference>
+    <PackageReference Include="System.Reactive">
+      <Version>4.1.6</Version>
+    </PackageReference>
     <PackageReference Include="Uno.Core" Version="1.29.0-dev.93" />
     <PackageReference Include="Uno.Microsoft.Toolkit.Uwp.UI.Controls">
       <Version>5.1.0-build.200.gf9c311b069</Version>
+    </PackageReference>
+    <PackageReference Include="Uno.Microsoft.Xaml.Behaviors.Uwp.Managed">
+      <Version>2.0.1-uno.28</Version>
     </PackageReference>
   </ItemGroup>
   <PropertyGroup>

@@ -28,8 +28,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Zafiro\PropertyEditor\LambdaComparer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Zafiro\PropertyEditor\ObjectEditor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Zafiro\PropertyEditor\PropertyItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Zafiro\RubberBandBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)AppResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

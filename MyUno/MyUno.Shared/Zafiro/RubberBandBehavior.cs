@@ -15,7 +15,7 @@ using Popup = Windows.UI.Xaml.Controls.Primitives.Popup;
 using Popup = Windows.UI.Xaml.Controls.Popup;
 #endif
 
-namespace Zafiro.Uwp.Controls.Behaviors
+namespace MyUno.Zafiro.PropertyEditor
 {
     public class RubberBandBehavior : Behavior<FrameworkElement>
     {
